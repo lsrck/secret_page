@@ -1,9 +1,25 @@
-<h1>Listes des utilisateurs</h1>
+<% if logged_in? %>
 
-<%= link_to "Page top secrete", page_top_secrete_path %>
+<h1> <%= current_user.name %> </h1>
 
-<%= link_to "S'enregistrer",
-new_user_path %>
+<h2> Bienvenue sur le site qui vous donnera la clé de l'univers. </h2>
+
+<p> Tu souhaites connaître la réponse à la question de l'univers ? </p>
+
+<p> <%= link_to "click ici", page_top_secrete_path, class: "btn btn-success"%> </p>
 
 
+<% else %>
 
+<h1> Cher visiteur </h1>
+
+<h2> Bienvenue sur le site qui vous donnera la clé de l'univers. </h2>
+
+<p> Tu souhaites connaître la réponse à la question de l'univers ?  </p>
+
+<p> Alors il faudra t'identifier ! </p>
+
+<p> <%= link_to "Log in", login_path, class: "btn btn-success" %> </p>
+
+
+<% end %>

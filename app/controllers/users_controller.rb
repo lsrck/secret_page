@@ -24,6 +24,13 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # On interdit à un user de modifier le profil d'un autre user    
+    if @user == current_user
+      render 'edit'
+    else 
+      flash.now[:error] = "Impossible de modifier un profil qui n'est pas le tien !"
+      render 'show'
+    end
   end
 
   def update
