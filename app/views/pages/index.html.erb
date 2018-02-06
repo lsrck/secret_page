@@ -1,3 +1,10 @@
 <h1>Bienvenu sur la page top secrete!</h1>
 
-42
+  <% if logged_in? %>
+  <h1>42!</h1>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/jwEPCn6lRo4?rel=0&amp;controls=0&amp;showinfo=0&amp;start=102&amp;autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <% else %>
+  <h3>Connecte-toi pour connaître le secret !</h3>
+	<%= link_to "Ok, go", login_path, class: "btn btn-lg btn-danger" %> 
+  <% end %>
